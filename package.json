@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@langchain/community": "^0.3.57",
     "@langchain/core": "^0.3.78",
     "@langchain/google-genai": "^0.2.18",
     "dotenv": "^17.2.3",
