@@ -7,43 +7,55 @@ export default function Home() {
       description: "Basic text generation with Gemini",
       href: "/simple-chat-llm",
       icon: "💬",
-      color: "bg-blue-500"
+      color: "bg-blue-500",
+      examples: ["Chat with AI", "Structured Output", "Prompt Engineering"]
     },
     {
       title: "Image Analysis",
       description: "Upload and analyze images with AI",
       href: "/image-generation",
       icon: "🖼️",
-      color: "bg-green-500"
+      color: "bg-green-500",
+      examples: ["OCR Text Extraction", "Content Analysis", "Visual Q&A"]
     },
     {
       title: "Speech Processing",
       description: "Generate speech scripts and analyze speech patterns",
       href: "/speech",
       icon: "🎤",
-      color: "bg-purple-500"
+      color: "bg-purple-500",
+      examples: ["Speech Scripts", "Voice Assistant", "Speech Analysis"]
     },
     {
       title: "Transcript Analysis",
       description: "Process audio transcripts and extract insights",
       href: "/transcription",
       icon: "🎙️",
-      color: "bg-orange-500"
+      color: "bg-orange-500",
+      examples: ["Meeting Summaries", "Action Items", "Transcript Cleanup"]
     },
     {
       title: "Multimodal Processing",
       description: "Process multiple content types simultaneously",
       href: "/multimodal",
       icon: "🔄",
-      color: "bg-indigo-500"
+      color: "bg-indigo-500",
+      examples: ["Document Analysis", "Code Review", "Content Pipeline"]
     },
     {
       title: "Feature Comparison",
       description: "Compare LangChain.js vs Vercel AI SDK",
       href: "/comparison",
       icon: "⚖️",
-      color: "bg-gray-500"
+      color: "bg-gray-500",
+      examples: ["AI Comparison", "Feature Analysis", "Decision Guide"]
     }
+  ];
+
+  const quickLinks = [
+    { name: "Streaming Examples", href: "/streaming", icon: "🌊" },
+    { name: "Tool Calling", href: "/tool-calling", icon: "🔧" },
+    { name: "Schema Examples", href: "/simple-chat-llm", icon: "📋" }
   ];
 
   return (
@@ -77,12 +89,36 @@ export default function Home() {
                 <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 group-hover:text-gray-700 transition-colors">
+                <p className="text-gray-600 group-hover:text-gray-700 transition-colors mb-3">
                   {feature.description}
                 </p>
+                <div className="flex flex-wrap gap-1">
+                  {feature.examples.map((example, idx) => (
+                    <span key={idx} className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
+                      {example}
+                    </span>
+                  ))}
+                </div>
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Quick Links */}
+        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">🔗 Quick Links to Examples</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {quickLinks.map((link, index) => (
+              <Link
+                key={index}
+                href={link.href}
+                className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                <span className="text-2xl">{link.icon}</span>
+                <span className="font-medium text-gray-700">{link.name}</span>
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* Quick Start */}
